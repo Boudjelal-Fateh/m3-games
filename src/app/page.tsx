@@ -10,6 +10,7 @@ import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import AiAgents from "@/components/AiAgents";
 import AboutUs from "@/components/About-us";
+import Timeline from "@/components/Timeline";
 
 
 export default function Home() {
@@ -25,9 +26,10 @@ export default function Home() {
         <NewSection />
       </div>
       <AiAgents />
+      <Timeline />
+      <WallOfLove />
       <PricingSection />
       <CTASection/>
-      {/* <WallOfLove /> */}
       <Footer />
     </main>
   );

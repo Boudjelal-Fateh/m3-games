@@ -40,7 +40,7 @@ const testimonials: Testimonial[] = [
 
 export default function WallOfLove() {
   return (
-    <section className="bg-black py-20 px-4 md:px-8 relative overflow-hidden">
+    <section className=" py-20 px-4 md:px-8 relative overflow-hidden">
       {/* Background Glow - Responsive */}
       <div 
         className="absolute pointer-events-none left-1/2 -translate-x-1/2 top-[140px] w-[min(800px,90vw)] h-[400px]"
