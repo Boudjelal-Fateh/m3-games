@@ -26,7 +26,8 @@ export default function Home() {
       </div>
       <AiAgents />
       <PricingSection />
-      <WallOfLove />
+      <CTASection/>
+      {/* <WallOfLove /> */}
       <Footer />
     </main>
   );
