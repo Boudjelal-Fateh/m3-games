@@ -51,20 +51,17 @@ export default function ExpertiseSection() {
   }, [isDragging]);
 
   return (
-    <section className="flex py-12 px-6 sm:py-16 sm:px-8 md:py-20 md:px-12 lg:py-[140px] lg:px-[100px] flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] bg-black w-full">
+    <section className="flex py-12 px-6 sm:py-16 sm:px-8 md:py-20 md:px-12 lg:py-[140px] lg:px-[100px] flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] bg-transparent w-full">
       {/* Frame 1: Header */}
       <div className="flex flex-col items-center gap-3 sm:gap-4 w-full">
         <div className="inline-flex items-center gap-2">
-          <span className="text-purple-500 text-lg sm:text-xl">✦</span>
-          <span className="text-purple-500 font-medium text-base sm:text-lg">Our Expertise</span>
+           <Image src={"/award.svg"} width={22} height={22} alt="Award Icon" />
+         <span className="text-[18px] sm:text-[24px] leading-[24px] text-[#a594fd] font-onest -tracking-[0.24px]">
+            Our Expertise
+          </span>
         </div>
         
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center px-4" style={{
-          background: 'linear-gradient(to bottom, #dedede 0%, #fefefe 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text'
-        }}>
+           <h2 className="text-[32px] sm:text-[40px] lg:text-[50px] leading-[40px] sm:leading-[52px] lg:leading-[64px] mb-[10px] font-onest font-[500] -tracking-[1.76px] text-[#f1f1ef]">
           Solutions Built for Your Growth
         </h2>
       </div>
@@ -73,50 +70,58 @@ export default function ExpertiseSection() {
       <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 w-full max-w-7xl">
         {/* Left Div: Text and List */}
         <div className="flex-1 flex flex-col gap-4 sm:gap-5 md:gap-6 w-full">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-800">
-            Future-Proof Solutions
-          </h3>
+          <h3 className="text-[24px] sm:text-[32px] lg:text-[40px] leading-[32px] sm:leading-[40px] lg:leading-[51px] font-onest font-[500] -tracking-[1.76px] text-[#f1f1ef] mb-[10px]">
+              Future-Proof Solutions
+            </h3>
           
-          <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
-            We don't just deliver code — we build scalable systems that
-            grow with your business.
-          </p>
+          <p className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[22px] sm:leading-[24px] lg:leading-[26px] -tracking-[0.16px] font-onest font-normal mb-[16px] sm:mb-[22px] text-[#adadad]/80">
+              We don't just deliver code — we build scalable systems that{" "}
+              <br className="hidden md:block" /> grow with your business.
+            </p>
 
           <div className="flex flex-col gap-3 sm:gap-4 mt-2 sm:mt-4">
             <div className="flex items-center gap-3">
-              <div className="w-6 h-6 rounded-full bg-teal-400 flex items-center justify-center flex-shrink-0">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <span className="text-gray-400 text-sm sm:text-base">Scalable Architecture</span>
+               <Image
+                  src={"/check-circle-1.svg"}
+                  width={20}
+                  height={20}
+                  alt="Check Icon"
+                  className="sm:w-6 sm:h-6"
+                />
+              <span className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[24px] font-onest font-normal text-[#adadad]">Scalable Architecture</span>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-6 h-6 rounded-full bg-teal-400 flex items-center justify-center flex-shrink-0">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <span className="text-gray-400 text-sm sm:text-base">Modern Technology Stack</span>
+               <Image
+                  src={"/check-circle-1.svg"}
+                  width={20}
+                  height={20}
+                  alt="Check Icon"
+                  className="sm:w-6 sm:h-6"
+                />
+              <span className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[24px] font-onest font-normal text-[#adadad]">Modern Technology Stack</span>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-6 h-6 rounded-full bg-teal-400 flex items-center justify-center flex-shrink-0">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <span className="text-gray-400 text-sm sm:text-base">Cloud-Native Solutions</span>
+              <Image
+                  src={"/check-circle-1.svg"}
+                  width={20}
+                  height={20}
+                  alt="Check Icon"
+                  className="sm:w-6 sm:h-6"
+                />
+              <span className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[24px] font-onest font-normal text-[#adadad]">Cloud-Native Solutions</span>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="w-6 h-6 rounded-full bg-teal-400 flex items-center justify-center flex-shrink-0">
-                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <span className="text-gray-400 text-sm sm:text-base">Performance Optimization</span>
+               <Image
+                  src={"/check-circle-1.svg"}
+                  width={20}
+                  height={20}
+                  alt="Check Icon"
+                  className="sm:w-6 sm:h-6"
+                />
+              <span className="text-[14px] sm:text-[16px] lg:text-[18px] leading-[20px] sm:leading-[24px] font-onest font-normal text-[#adadad]">Performance Optimization</span>
             </div>
           </div>
         </div>
@@ -135,7 +140,7 @@ export default function ExpertiseSection() {
 
           {/* Vertical Scrollbar - Desktop only */}
           <div className="hidden md:flex flex-col items-center" style={{ width: '16px', height: '452px' }}>
-            <span className="text-xs text-gray-400 font-medium">03</span>
+            <span className="text-xs text-gray-400 font-medium mb-1">03</span>
             <div 
               ref={scrollTrackRef}
               onClick={handleTrackClick}
@@ -148,14 +153,14 @@ export default function ExpertiseSection() {
                 className="absolute rounded-full cursor-grab active:cursor-grabbing transition-colors hover:bg-gray-600"
                 style={{ 
                   width: '4px', 
-                  height: '60px',
+                  height: '180px',
                   background: '#666',
                   top: `${scrollPosition * (100 - (60 / (scrollTrackRef.current?.clientHeight || 1) * 100))}%`,
                   transition: isDragging ? 'none' : 'top 0.1s ease-out'
                 }}
               ></div>
             </div>
-            <span className="text-xs text-gray-400 font-medium">04</span>
+            <span className="text-xs text-gray-400 font-medium mt-1">04</span>
           </div>
         </div>
       </div>

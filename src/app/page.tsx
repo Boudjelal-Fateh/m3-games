@@ -8,6 +8,9 @@ import ExpertiseSection from "@/components/ExpertiseSection";
 import NewSection from "@/components/NewSection";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
+import AiAgents from "@/components/AiAgents";
+import AboutUs from "@/components/About-us";
+
 
 export default function Home() {
   return (
@@ -15,10 +18,13 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <Productivity />
+      <AboutUs />
+      
       <div className="relative">
         <ExpertiseSection />
         <NewSection />
       </div>
+      <AiAgents />
       <PricingSection />
       <WallOfLove />
       <Footer />

@@ -69,7 +69,15 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-gray-800">
+    <nav 
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+        background: 'linear-gradient(94deg, rgba(17, 18, 20, 0.30) 4.87%, rgba(12, 13, 15, 0.36) 75.88%)',
+        boxShadow: '0 1px 1px 1px rgba(255, 255, 255, 0.15) inset',
+        backdropFilter: 'blur(12.5px)',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
