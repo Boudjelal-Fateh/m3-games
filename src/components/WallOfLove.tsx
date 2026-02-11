@@ -71,7 +71,11 @@ export default function WallOfLove() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] p-8 rounded-3xl border border-white/10 hover:border-white/20 transition-all"
+              className="p-8 border border-white/10 hover:border-white/20 transition-all"
+              style={{
+                borderRadius: '20px',
+                background: 'rgba(16, 16, 16, 0.80)',
+              }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 overflow-hidden relative border border-white/10">

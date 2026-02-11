@@ -11,7 +11,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen" style={{ backgroundColor: '#060606' }}>
       <Navbar />
       <HeroSection />
       <Productivity />

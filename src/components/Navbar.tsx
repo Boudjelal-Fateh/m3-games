@@ -53,7 +53,7 @@ function MobileNavLink({ link, isActive, onClick }: NavLinkProps) {
     >
       {link.label}
       {isActive && (
-        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"></span>
+        <span className="hidden md:block absolute bottom-0 left-0 right-0 h-0.5 bg-white"></span>
       )}
     </Link>
   );
@@ -135,9 +135,26 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mobile Menu Backdrop Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+          style={{ top: '64px' }}
+        />
+      )}
+
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black border-t border-gray-800">
+        <div 
+          className="md:hidden border-t fixed left-0 right-0 z-50"
+          style={{
+            top: '64px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+            background: 'linear-gradient(94deg, rgba(17, 18, 20, 0.30) 4.87%, rgba(12, 13, 15, 0.36) 75.88%)',
+            backdropFilter: 'blur(12.5px)',
+          }}
+        >
           <div className="px-6 py-4 space-y-3">
             {navLinks.map((link) => (
               <MobileNavLink

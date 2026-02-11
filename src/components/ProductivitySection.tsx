@@ -3,22 +3,50 @@ import Image from "next/image";
 
 export function Productivity() {
   return (
-    <section className="relative w-full overflow-x-hidden bg-black px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24 xl:py-[140px]">
+    <section className="relative w-full bg-black overflow-x-hidden bg-transparent px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24 xl:py-[140px] -mt-64 md:-mt-80 lg:-mt-96 xl:-mt-[28rem] z-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 sm:mb-14 md:mb-16 text-center flex flex-col items-center justify-center">
           <div className="mb-3 sm:mb-4 md:mb-[22px] flex items-center justify-center gap-2">
             <Image src="/Frame.svg" width={16} height={16} alt="Sparkles Icon" className="sm:w-[18px] sm:h-[18px]" />
-            <span className="text-lg sm:text-xl md:text-[24px] leading-[24px] text-[#a594fd] font-onest -tracking-[0.24px]">
+            <span 
+              className="font-onest"
+              style={{
+                color: '#A594FD',
+                fontSize: '24px',
+                fontWeight: 400,
+                lineHeight: '24px',
+                letterSpacing: '-0.24px',
+              }}
+            >
               Productivity
             </span>
           </div>
 
           <div className="flex flex-col items-center gap-2 sm:gap-3 md:gap-[10px] px-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-tight sm:leading-[48px] md:leading-[56px] lg:leading-[64px] mb-2 sm:mb-[10px] font-onest font-[500] -tracking-[1.76px] text-[#f1f1ef]">
+            <h2 
+              className="mb-2 sm:mb-[10px] font-onest text-center"
+              style={{
+                color: '#F1F1EF',
+                fontSize: '50px',
+                fontWeight: 500,
+                lineHeight: 'normal',
+                letterSpacing: '-1.76px',
+              }}
+            >
               Smarter Tools, Better Work
             </h2>
-            <p className="text-center max-w-[510px] leading-6 sm:leading-7 md:leading-[26px] text-sm sm:text-base md:text-[18px] font-normal font-onest -tracking-[0.16px] text-[#adadad]/80">
+            <p 
+              className="text-center font-onest"
+              style={{
+                color: 'rgba(173, 173, 173, 0.80)',
+                fontSize: '18px',
+                fontWeight: 400,
+                lineHeight: '26px',
+                letterSpacing: '-0.16px',
+                width: '550px',
+              }}
+            >
               Automate tasks, collaborate seamlessly, and optimize operations to
               focus on what truly matters.
             </p>
