@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Productivity() {
   return (
-    <section className="relative w-full bg-black overflow-x-hidden bg-transparent px-4 py-12 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-24 xl:py-[140px] -mt-64 md:-mt-80 lg:-mt-96 xl:-mt-[28rem] z-20">
+    <section className="relative w-full bg-black overflow-x-hidden bg-transparent px-4 pt-[148px] pb-12 sm:px-6 sm:pt-[164px] sm:pb-16 md:pt-[180px] md:pb-20 lg:px-8 lg:pt-[196px] lg:pb-24 xl:pt-[240px] xl:pb-[140px] -mt-64 md:-mt-80 lg:-mt-96 xl:-mt-[28rem] z-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 sm:mb-14 md:mb-16 text-center flex flex-col items-center justify-center">

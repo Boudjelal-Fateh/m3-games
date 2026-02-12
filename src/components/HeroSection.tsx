@@ -38,7 +38,7 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <p 
-          className="text-center mb-6 sm:mb-8 font-onest px-4 max-w-full sm:max-w-[573px]"
+          className="text-center mb-6 sm:mb-8 font-onest px-4 max-w-full   sm:max-w-[573px]"
           style={{
             color: '#B8C5D1',
             fontSize: 'clamp(16px, 4vw, 20px)',
