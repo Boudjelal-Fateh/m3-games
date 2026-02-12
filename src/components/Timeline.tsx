@@ -77,7 +77,7 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
       </div>
 
       {/* Desktop Layout (Hidden on mobile, visible on md+) */}
-      <div className="hidden md:flex w-full items-center justify-center relative">
+      <div className="hidden md:grid grid-cols-[1fr_96px_1fr] w-full items-center relative">
         {/* Background Glow (Desktop only) */}
         <motion.div 
           style={{ opacity: glowOpacity }}
@@ -85,7 +85,7 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
         />
 
         {/* Content Side 1 (Left) */}
-        <div className={` w-[462px] flex ${isEven ? "justify-end" : "justify-start"} px-0 z-10`}>
+        <div className="flex justify-end px-0 z-10">
           {isEven ? (
             // Index 0, 2 (Item 1, 3): Left is Description Card
             <div className="flex flex-col justify-center items-center gap-[24px] p-[40px] rounded-[20px] bg-[#101010] flex-1 border border-white/10 transition-all duration-300 hover:border-white/30 hover:shadow-[0_0_30px_-10px_rgba(255,255,255,0.1)] mr-[-4px] relative group">
@@ -96,8 +96,8 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
             </div>
           ) : (
             // Index 1, 3 (Item 2, 4): Left is Title Pill
-            <div className="bg-blue-200 border    border-white/5 py-3 px-6 rounded-[12px] w-fit">
-              <h3 className="text-white text-[16px] font-medium font-onest whitespace-nowrap">
+            <div className="bg-[#1A1A1A] border border-white/5 py-3 px-6 rounded-[12px] w-fit">
+              <h3 className="text-white text-[16px] font-semibold font-onest leading-[146%] whitespace-nowrap">
                 {item.title}
               </h3>
             </div>
@@ -105,8 +105,8 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
         </div>
 
         {/* Center Node */}
-        <div className="relative z-20 flex flex-col items-center justify-center w-24 shrink-0">
-           <div className="w-12 h-12 rounded-full bg-[#FAFAFA] flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] z-10">
+        <div className="relative z-20 flex justify-center items-center shrink-0">
+           <div className="w-12 h-12 rounded-full bg-[#e6e6e6] flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] z-10">
             <span className="text-black font-bold font-onest text-base">
               0{item.id}
             </span>
@@ -114,19 +114,19 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
         </div>
 
         {/* Content Side 2 (Right) */}
-        <div className={`w-[462px] flex ${isEven ? "justify-start" : "justify-end"} px-0 z-10`}>
+        <div className="flex justify-start px-0 z-10">
           {isEven ? (
             // Index 0 (Item 1): Right is Title Pill
             <div className="bg-[#1A1A1A] border border-white/5 py-3 px-6 rounded-[12px] w-fit">
-              <h3 className="text-white text-[16px] font-medium font-onest whitespace-nowrap">
+              <h3 className="text-white text-[16px] font-semibold font-onest leading-[146%] whitespace-nowrap">
                 {item.title}
               </h3>
             </div>
           ) : (
             // Index 1 (Item 2): Right is Description Card
-            <div className="flex flex-col justify-center items-center gap-[24px] p-[40px] rounded-[20px] bg-[#101010] flex-1 border border-white/10 transition-all duration-300 hover:border-white/30 hover:shadow-[0_0_30px_-10px_rgba(255,255,255,0.1)] ml-[-4px] relative group">
-              <div className="absolute left-[-5px] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#101010] border-b border-l border-white/10 rotate-45 transition-all duration-300 group-hover:border-white/30" />
-              <p className="self-stretch w-full max-w-[485px] text-[#9C9C9D] text-right font-onest text-[16px] font-[400] leading-[150%]">
+            <div className="flex flex-col justify-center items-center gap-[24px] p-[40px] rounded-[20px] bg-[#101010] flex-1 border border-white/10 transition-all duration-300 hover:border-white/30 hover:shadow-[0_0_30px_-10px_rgba(255,255,255,0.1)] mr-[-4px] relative group">
+              <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#101010] border-t border-r border-white/10 rotate-45 transition-all duration-300 group-hover:border-white/30" />
+              <p className="  text-start w-full max-w-[460px] text-[#9C9C9D] text-right font-onest text-[16px] font-[400] leading-[150%]">
                 {item.description}
               </p>
             </div>
