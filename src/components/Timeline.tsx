@@ -49,7 +49,7 @@ const timelineData: TimelineItem[] = [
 
 const TimelineRow = ({ item, index, scrollYProgress, totalItems, activeIndex, setActiveIndex }: { item: TimelineItem; index: number; scrollYProgress: MotionValue<number>; totalItems: number; activeIndex: number; setActiveIndex: (index: number) => void; }) => {
   const isEven = index % 2 === 0;
-  const isActive = index === activeIndex;
+  const isActive = index <= activeIndex;
 
   // Calculate specific trigger points for this item
   // Distribute trigger points along the vertical line
@@ -165,7 +165,7 @@ export default function Timeline() {
     const totalItems = timelineData.length;
     // Calculate which item is closest to the "trigger point"
     // The trigger point is when an item is centered or slightly entered
-    const currentSection = Math.round(latest * (totalItems - 1));
+    const currentSection = Math.floor(latest * (totalItems - 1));
     if (currentSection !== activeIndex && currentSection >= 0 && currentSection < totalItems) {
       setActiveIndex(currentSection);
     }
