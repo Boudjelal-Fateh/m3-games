@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AiAgents() {
    return (
-    <section className="relative w-full overflow-x-hidden    mx-auto overflow-y-hidden xl:max-w-[1240px]   px-4 py-20 sm:px-6 lg:px-8 xl:px-[100px] lg:py-[140px] ">
+    <section id="ai" className="relative w-full overflow-x-hidden    mx-auto overflow-y-hidden xl:max-w-[1240px]   px-4 py-20 sm:px-6 lg:px-8 xl:px-[100px] lg:py-[140px] ">
       {/* Header */}
       <div className="mb-12 sm:mb-16 text-center flex flex-col items-center justify-center md:mb-[60px]">
         <div className="mb-4 flex items-center justify-center gap-2">

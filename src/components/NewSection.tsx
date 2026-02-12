@@ -29,7 +29,7 @@ export default function NewSection() {
   ];
 
   return (
-    <section className="relative w-full overflow-x-hidden  px-4 py-20 sm:px-6 lg:px-8 xl:py-[140px] xl:px-[100px]">
+    <section id="web3" className="relative w-full overflow-x-hidden  px-4 py-20 sm:px-6 lg:px-8 xl:py-[140px] xl:px-[100px]">
       {/* Blurry Background Effect */}
       <div 
         className="absolute pointer-events-none"

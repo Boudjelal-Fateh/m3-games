@@ -80,7 +80,7 @@ const pricingTiers: PricingTier[] = [
 
 export default function PricingSection() {
   return (
-    <section className="relative z-10 py-20 px-4 md:px-8">
+    <section id="plans" className="relative z-10 py-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16">

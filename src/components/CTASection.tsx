@@ -8,7 +8,7 @@ export default function CTASection() {
   
 
   return (
-    <section className="relative py-8 md:py-12 px-4 md:px-8 min-h-[400px] md:min-h-[625px] flex items-center">
+    <section id="contact" className="relative py-8 md:py-12 px-4 md:px-8 min-h-[400px] md:min-h-[625px] flex items-center">
       <div
         className="absolute left-1/2 -translate-x-1/2 flex justify-center items-center z-0 pointer-events-none w-[200%] sm:w-[150%] md:w-[1100px] h-[600px] md:h-[980.78px] -top-[100px] md:-top-[360px] bottom-auto md:-bottom-[141px]"
       >

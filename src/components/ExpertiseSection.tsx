@@ -51,7 +51,7 @@ export default function ExpertiseSection() {
   }, [isDragging]);
 
   return (
-    <section className="flex py-12 px-6 sm:py-16 sm:px-8 md:py-20 md:px-12 lg:py-[140px] lg:px-[100px] flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] bg-transparent w-full">
+    <section id="services" className="flex py-12 px-6 sm:py-16 sm:px-8 md:py-20 md:px-12 lg:py-[140px] lg:px-[100px] flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] bg-transparent w-full">
       {/* Frame 1: Header */}
       <div className="flex flex-col items-center gap-3 sm:gap-4 w-full">
         <div className="inline-flex items-center gap-2">
