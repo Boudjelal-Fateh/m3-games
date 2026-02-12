@@ -164,12 +164,12 @@ export default function Timeline() {
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-[50%] top-[-80px] bottom-0 w-[2px] bg-white/10 -translate-x-1/2 hidden md:block"></div>
+          <div className="absolute left-[50%] top-[-100px] bottom-[50px] w-[2px] bg-white/10 -translate-x-1/2 hidden md:block"></div>
           
           {/* Animated fill line */}
           <motion.div 
             style={{ height }}
-            className="absolute left-[50%] top-[-80px] w-[2px] bg-white -translate-x-1/2 hidden md:block origin-top shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+            className="absolute left-[50%] top-[-100px] w-[2px] bg-white -translate-x-1/2 hidden md:block origin-top shadow-[0_0_10px_rgba(255,255,255,0.5)]"
           />
 
           <div className="space-y-4 md:space-y-12">
