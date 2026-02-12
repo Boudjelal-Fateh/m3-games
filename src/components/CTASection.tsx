@@ -32,7 +32,7 @@ export default function CTASection() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-[12px] sm:gap-[16px] w-full sm:w-auto">
           <Link 
-            href="#contact" 
+            href="#" 
             className="flex items-center justify-center w-full sm:w-auto h-[54px] px-[32px] py-[15px] gap-[8px] rounded-[10px] bg-[#E6E6E6] text-[#000] text-center font-onest text-[18px] font-[500] leading-[28px] tracking-[0.18px] shadow-[0_10px_15px_-3px_rgba(0,0,0,0.10),0_4px_6px_-4px_rgba(0,0,0,0.10)] hover:bg-[#d4d4d4] transition-all"
           >
              <Image
@@ -48,7 +48,7 @@ export default function CTASection() {
           </Link>
           
           <Link 
-            href="#learn-more" 
+            href="#" 
             className="flex w-full sm:w-[190px] h-[54px] px-[32px] py-[15px] justify-center items-center gap-[8px] md:gap-[5px] rounded-[10px] border border-[rgba(255,255,255,0.10)] bg-[rgba(255,255,255,0.10)] text-[#FFF] text-center font-onest text-[18px] font-[500] leading-[28px] tracking-[0.18px] transition-all hover:bg-[rgba(255,255,255,0.20)]"
           >
             Learn more

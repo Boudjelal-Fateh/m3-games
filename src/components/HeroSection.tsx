@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -50,8 +51,8 @@ export default function HeroSection() {
         </p>
 
         {/* CTA Button */}
-        <button 
-          className="text-gray-900 font-medium hover:bg-gray-100 transition-colors mb-3 sm:mb-4 w-auto mt-[30px] sm:mt-[40px] md:mt-[60px]"
+       <Link href={"#contact"} > <button 
+          className="text-gray-900 font-medium hover:bg-gray-100 transition-colors mb-3 sm:mb-4 w-auto mt-[30px] sm:mt-[40px] md:mt-[60px] cursor-pointer "
           style={{
             display: 'flex',
             height: '40px',
@@ -78,7 +79,7 @@ export default function HeroSection() {
           >
             Transform Your Business
           </span>
-        </button>
+        </button></Link>
 
         {/* Small Text */}
         <p 
