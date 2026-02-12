@@ -24,9 +24,9 @@ export default function AiAgents() {
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start w-full">
+      <div className="flex flex-col lg:flex-row gap-8 items-start w-full justify-between">
         {/* Left - Image */}
-        <div className="relative  w-full h-[280px] sm:h-[400px] lg:h-[568px] rounded-[20px] overflow-hidden">
+        <div className="relative w-full lg:w-[600px] h-[280px] sm:h-[400px] lg:h-[568px] rounded-[20px] overflow-hidden">
           <Image
             src="/background.png"
             alt="AI Agents"
@@ -36,10 +36,10 @@ export default function AiAgents() {
         </div>
 
         {/* Right - Content */}
-        <div className="flex flex-col gap-6 sm:gap-8 lg:justify-between h-auto lg:h-[568px] w-full py-[20px] ">
+        <div className="flex flex-col gap-6 sm:gap-8 lg:justify-between h-auto lg:min-h-[568px] w-full lg:w-[570px] py-[20px]">
           {/* Main Text */}
           <div className="flex flex-col gap-4">
-            <p className="text-[16px] sm:text-[18px] lg:text-[22px] leading-[24px] sm:leading-[28px] lg:leading-[36px] font-onest font-[500] text-[#fff]">
+            <p className="text-[16px]  sm:text-[18px] lg:text-[23.5px] leading-[24px] sm:leading-[28px] lg:leading-[40px] font-onest font-[500] text-[#fff]">
               We build custom AI models fine-tuned on your specific data and use
               cases to deliver maximum accuracy and relevance. Our approach
               includes domain-specific training,{" "}

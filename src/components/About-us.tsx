@@ -2,7 +2,7 @@ export default function AboutUs() {
   return (
     <section className="flex flex-col items-center px-5 py-12 sm:px-10 sm:py-16 md:px-[100px] md:py-[140px] bg-transparent">
       <p 
-        className="text-white w-full max-w-full lg:max-w-[1240px] font-onest font-bold text-center"
+        className="text-white w-full max-w-full lg:max-w-[1240px] font-onest font-bold  text-center"
         style={{
           fontSize: 'clamp(24px, 6vw, 50px)',
           lineHeight: 'clamp(32px, 7vw, 70px)',

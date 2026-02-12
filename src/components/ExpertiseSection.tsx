@@ -155,7 +155,7 @@ export default function ExpertiseSection() {
                   width: '4px', 
                   height: '180px',
                   background: '#666',
-                  top: `${scrollPosition * (100 - (60 / (scrollTrackRef.current?.clientHeight || 1) * 100))}%`,
+                  top: `calc(${scrollPosition * 100}% - ${scrollPosition * 180}px)`,
                   transition: isDragging ? 'none' : 'top 0.1s ease-out'
                 }}
               ></div>

@@ -10,14 +10,7 @@ export function Productivity() {
           <div className="mb-3 sm:mb-4 md:mb-[22px] flex items-center justify-center gap-2">
             <Image src="/Frame.svg" width={16} height={16} alt="Sparkles Icon" className="sm:w-[18px] sm:h-[18px]" />
             <span 
-              className="font-onest"
-              style={{
-                color: '#A594FD',
-                fontSize: '24px',
-                fontWeight: 400,
-                lineHeight: '24px',
-                letterSpacing: '-0.24px',
-              }}
+              className="font-onest text-[20px] md:text-[24px] text-[#A594FD] font-normal leading-[24px] tracking-[-0.24px]"
             >
               Productivity
             </span>
@@ -25,27 +18,12 @@ export function Productivity() {
 
           <div className="flex flex-col items-center gap-2 sm:gap-3 md:gap-[10px] px-4">
             <h2 
-              className="mb-2 sm:mb-[10px] font-onest text-center"
-              style={{
-                color: '#F1F1EF',
-                fontSize: '50px',
-                fontWeight: 500,
-                lineHeight: 'normal',
-                letterSpacing: '-1.76px',
-              }}
+              className="mb-2 sm:mb-[10px] font-onest text-center text-[32px] sm:text-[40px] md:text-[50px] text-[#F1F1EF] font-medium leading-tight md:leading-normal tracking-[-1.76px]"
             >
               Smarter Tools, Better Work
             </h2>
             <p 
-              className="text-center font-onest"
-              style={{
-                color: 'rgba(173, 173, 173, 0.80)',
-                fontSize: '18px',
-                fontWeight: 400,
-                lineHeight: '26px',
-                letterSpacing: '-0.16px',
-                width: '550px',
-              }}
+              className="text-center font-onest text-[16px] md:text-[18px] text-[#ADADAD]/80 font-normal leading-[26px] tracking-[-0.16px] w-full max-w-[550px]"
             >
               Automate tasks, collaborate seamlessly, and optimize operations to
               focus on what truly matters.
@@ -62,7 +40,7 @@ export function Productivity() {
                 alt="Collaborative Tools"
                 width={385}
                 height={59}
-                className="absolute top-[45px] right-[5px]"
+                className="absolute top-[30px] sm:top-[45px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[5px] object-contain"
               />
               <Image
                 src="/asset.png"
@@ -70,14 +48,14 @@ export function Productivity() {
                 width={385}
                 height={80}
                 style={{ filter: "grayscale(100%)" }}
-                className="absolute top-[104px] right-[5px]"
+                className="absolute top-[80px] sm:top-[104px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[5px] object-contain"
               />
               <Image
                 src="/asset-2.png"
                 alt="Collaborative Tools"
                 width={385}
                 height={80}
-                className="absolute top-[184px] right-[5px]"
+                className="absolute top-[150px] sm:top-[184px] left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[5px] object-contain"
               />
             </div>
             <div className="flex flex-col items-center justify-center px-6 sm:px-8 md:px-[38.5px] pb-8 sm:pb-10 md:pb-[50px] gap-2 sm:gap-[10px]">

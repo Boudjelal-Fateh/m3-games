@@ -1,6 +1,6 @@
 "use client"
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useScroll, useTransform, MotionValue, useMotionValueEvent } from "framer-motion";
 
 interface TimelineItem {
   id: number;
@@ -47,8 +47,9 @@ const timelineData: TimelineItem[] = [
   },
 ];
 
-const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: TimelineItem; index: number; scrollYProgress: MotionValue<number>; totalItems: number }) => {
+const TimelineRow = ({ item, index, scrollYProgress, totalItems, activeIndex, setActiveIndex }: { item: TimelineItem; index: number; scrollYProgress: MotionValue<number>; totalItems: number; activeIndex: number; setActiveIndex: (index: number) => void; }) => {
   const isEven = index % 2 === 0;
+  const isActive = index === activeIndex;
 
   // Calculate specific trigger points for this item
   // Distribute trigger points along the vertical line
@@ -66,10 +67,17 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
       }`}
     >
       {/* Mobile Layout (Visible only on small screens) */}
-      <div className="flex md:hidden flex-col items-center text-center gap-4 w-full px-2">
-           <div className="w-12 h-12 rounded-full bg-[#FAFAFA] flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] z-10 shrink-0">
-              <span className="text-black font-bold font-onest text-sm">0{item.id}</span>
-           </div>
+      <div className="flex lg:hidden flex-col items-center text-center gap-4 w-full px-2">
+        <div 
+          onClick={() => setActiveIndex(index)}
+          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-10 shrink-0 ${
+            isActive 
+              ? "bg-white shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110" 
+              : "bg-[#1A1A1A] border border-white/10"
+          }`}
+        >
+          <span className={`font-bold font-onest text-sm transition-colors duration-300 ${isActive ? "text-black" : "text-[#9C9C9D]"}`}>0{item.id}</span>
+        </div>
            <h3 className="text-white text-[20px] font-medium font-onest">{item.title}</h3>
            <div className="bg-[#0A0A0A] border border-white/10 p-6 rounded-[16px] w-full shadow-[0_0_30px_-10px_rgba(255,255,255,0.1)]">
               <p className="text-[#d4d4d4] text-[16px] leading-relaxed font-onest">{item.description}</p>
@@ -77,7 +85,7 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
       </div>
 
       {/* Desktop Layout (Hidden on mobile, visible on md+) */}
-      <div className="hidden md:grid grid-cols-[1fr_96px_1fr] w-full items-center relative">
+      <div className="hidden lg:grid grid-cols-[1fr_96px_1fr] w-full items-center relative">
         {/* Background Glow (Desktop only) */}
         <motion.div 
           style={{ opacity: glowOpacity }}
@@ -106,8 +114,15 @@ const TimelineRow = ({ item, index, scrollYProgress, totalItems }: { item: Timel
 
         {/* Center Node */}
         <div className="relative z-20 flex justify-center items-center shrink-0">
-           <div className="w-12 h-12 rounded-full bg-[#e6e6e6] flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] z-10">
-            <span className="text-black font-bold font-onest text-base">
+           <div 
+             onClick={() => setActiveIndex(index)}
+             className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 cursor-pointer z-10 ${
+               isActive 
+                 ? "bg-white shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-110" 
+                 : "bg-[#1A1A1A] border border-white/10"
+             }`}
+           >
+            <span className={`font-bold font-onest text-base transition-colors duration-300 ${isActive ? "text-black" : "text-[#9C9C9D]"}`}>
               0{item.id}
             </span>
           </div>
@@ -144,6 +159,18 @@ export default function Timeline() {
     offset: ["start center", "end center"],
   });
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const totalItems = timelineData.length;
+    // Calculate which item is closest to the "trigger point"
+    // The trigger point is when an item is centered or slightly entered
+    const currentSection = Math.round(latest * (totalItems - 1));
+    if (currentSection !== activeIndex && currentSection >= 0 && currentSection < totalItems) {
+      setActiveIndex(currentSection);
+    }
+  });
+
   const height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
@@ -164,17 +191,25 @@ export default function Timeline() {
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-[50%] top-[-100px] bottom-[50px] w-[2px] bg-white/10 -translate-x-1/2 hidden md:block"></div>
+          <div className="absolute left-[50%] top-[-100px] bottom-[50px] w-[2px] bg-white/10 -translate-x-1/2 hidden lg:block"></div>
           
           {/* Animated fill line */}
           <motion.div 
             style={{ height }}
-            className="absolute left-[50%] top-[-100px] w-[2px] bg-white -translate-x-1/2 hidden md:block origin-top shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+            className="absolute left-[50%] top-[-100px] w-[2px] bg-white -translate-x-1/2 hidden lg:block origin-top shadow-[0_0_10px_rgba(255,255,255,0.5)]"
           />
 
           <div className="space-y-4 md:space-y-12">
             {timelineData.map((item, index) => (
-              <TimelineRow key={item.id} item={item} index={index} scrollYProgress={scrollYProgress} totalItems={timelineData.length} />
+              <TimelineRow 
+                key={item.id} 
+                item={item} 
+                index={index} 
+                scrollYProgress={scrollYProgress} 
+                totalItems={timelineData.length}
+                activeIndex={activeIndex}
+                setActiveIndex={setActiveIndex} 
+              />
             ))}
           </div>
         </div>
