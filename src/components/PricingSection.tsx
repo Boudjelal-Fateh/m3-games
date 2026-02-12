@@ -169,7 +169,7 @@ export default function PricingSection() {
 
               {/* CTA Button */}
               <button
-                className={`flex items-center justify-center w-full h-[50px] px-6 py-3 shrink-0 rounded-[8px] font-medium transition-all mt-auto ${
+                className={`flex items-center justify-center w-full h-[50px] px-6 py-3 shrink-0 rounded-[8px] font-medium transition-all mt-auto   cursor-pointer  ${
                   tier.buttonVariant === "light"
                     ? "bg-[#E6E6E6] text-black hover:bg-[#d4d4d4] shadow-[0_0_0_2px_rgba(0,0,0,0.50),0_0_14px_0_rgba(255,255,255,0.25),inset_0_-1px_0.4px_0_rgba(0,0,0,0.20),inset_0_1px_0.4px_0_#FFF]"
                     : "bg-[#1A1A1A] text-white border border-[rgba(255,255,255,0.08)] hover:bg-[#252525]"

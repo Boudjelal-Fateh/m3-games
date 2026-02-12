@@ -117,7 +117,7 @@ export default function Navbar() {
             </button>
 
             {/* CTA Button */}
-           <Link href="#contact"> <button className="px-6 py-2 bg-white text-black font-medium rounded-md hover:bg-gray-100 transition-colors text-sm">
+           <Link href="#contact"> <button className="px-6 py-2 bg-white text-black font-medium rounded-md hover:bg-gray-100 transition-colors text-sm cursor-pointer">
               Get Started Today
             </button></Link>
           </div>

@@ -140,7 +140,7 @@ export default function ExpertiseSection() {
 
           {/* Vertical Scrollbar - Desktop only */}
           <div className="hidden md:flex flex-col items-center" style={{ width: '16px', height: '452px' }}>
-            <span className="text-xs text-gray-400 font-medium mb-1">03</span>
+            <span className="text-xs leading-[18px] text-[#adadad] font-medium mb-1">03</span>
             <div 
               ref={scrollTrackRef}
               onClick={handleTrackClick}
@@ -154,13 +154,13 @@ export default function ExpertiseSection() {
                 style={{ 
                   width: '4px', 
                   height: '180px',
-                  background: '#666',
+                  background: '#fff',
                   top: `calc(${scrollPosition * 100}% - ${scrollPosition * 180}px)`,
                   transition: isDragging ? 'none' : 'top 0.1s ease-out'
                 }}
               ></div>
             </div>
-            <span className="text-xs text-gray-400 font-medium mt-1">04</span>
+            <span className="text-xs text-[#adadad] font-medium mt-1">04</span>
           </div>
         </div>
       </div>

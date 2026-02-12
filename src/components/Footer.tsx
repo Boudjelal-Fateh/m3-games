@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           {/* Dynamic Sections */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-24 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-24 w-full md:w-auto">
             {footerSections.map((section, index) => (
               <div key={index}>
                 <h4 className="text-[#F4F0FF] font-onest text-[16px] font-medium leading-[20px] mb-3 sm:mb-4">{section.title}</h4>
