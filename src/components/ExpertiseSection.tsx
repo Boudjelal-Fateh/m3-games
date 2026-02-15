@@ -24,21 +24,21 @@ const expertiseData: ExpertiseItem[] = [
     title: "Partenariat, Pas d'Externalisation",
     description: "Nos experts deviennent une extension de votre équipe, engagés dans votre succès à long terme.",
     features: ["Intégration d'Équipe Dédiée", "Engagement à Long Terme", "Alignement Culturel", "Communication Fluide"],
-    image: "/Background.png" 
+    image: "/Back1.png" 
   },
   {
     id: "security",
     title: "Rapidité avec Précision",
     description: "Du concept à la livraison, nous agissons rapidement sans jamais compromettre la qualité.",
     features: ["Prototypage Rapide", "Méthodologie Agile", "Assurance Qualité", "Intégration Continue"],
-    image: "/Background-1.png"
+    image: "/Back2.png"
   },
   {
     id: "analytics",
     title: "Transparence Radicale",
     description: "Pas de coûts cachés, pas de mises à jour vagues. Vous voyez les progrès en temps réel, à chaque étape.",
     features: ["Suivi des Progrès en Temps Réel", "Tarification Transparente", "Rapports Réguliers", "Communication Ouverte"],
-    image: "/Background-1.png"
+    image: "/Back3.png"
   }
 ];
 

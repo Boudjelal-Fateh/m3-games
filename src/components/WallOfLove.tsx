@@ -66,23 +66,19 @@ export default function WallOfLove() {
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid  grid-cols-1  lg:grid-cols-3 gap-6">
+        {/* Mobile/Tablet Grid View */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:hidden">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="p-8 border  border-white/10 transition-all"
+              className="p-8 border border-white/10 transition-all"
               style={{
                 borderRadius: '20px',
-               background: "rgba(16, 16, 16, 0.80)"
-
+                background: "rgba(16, 16, 16, 0.80)"
               }}
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 overflow-hidden relative border border-white/10">
-                   {/* Avatar with fallback to initials */}
-                  
-                   {/* Uncomment when you have actual avatar images */}
                    <Image
                      src={testimonial.avatar}
                      alt={testimonial.name}
@@ -101,6 +97,54 @@ export default function WallOfLove() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* Desktop Infinite Carousel View */}
+        <div className="hidden lg:block relative w-full overflow-hidden mask-gradient group">
+          <style>
+            {`
+              @keyframes scroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+            `}
+          </style>
+          <div
+            className="flex gap-6 w-max group-hover:[animation-play-state:paused]"
+            style={{
+              animation: "scroll 60s linear infinite"
+            }}
+          >
+            {[...testimonials, ...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
+              <div
+                key={`desktop-${testimonial.id}-${index}`}
+                className="p-8 border border-white/10 transition-all w-[400px] shrink-0 hover:bg-white/5 cursor-default"
+                style={{
+                  borderRadius: '20px',
+                  background: "rgba(16, 16, 16, 0.80)"
+                }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-800 overflow-hidden relative border border-white/10">
+                     <Image
+                       src={testimonial.avatar}
+                       alt={testimonial.name}
+                       width={48}
+                       height={48}
+                       className="object-cover"
+                     />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">{testimonial.name}</h3>
+                    <p className="text-sm text-gray-500">{testimonial.handle}</p>
+                  </div>
+                </div>
+                <p className="text-gray-400 leading-relaxed text-sm">
+                  {testimonial.content}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
         
         {/* Gradient Overlay */}
