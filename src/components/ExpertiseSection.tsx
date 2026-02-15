@@ -189,60 +189,106 @@ export default function ExpertiseSection() {
           </div>
 
           {/* Frame 2: Content Grid */}
-          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16 w-full max-w-7xl">
-            {/* Left Div: Text and List */}
-            <ExpertiseContent activeFeature={currentFeature} />
-
-            {/* Right Div: Image with Scrollbar */}
-            <div className="flex-1 relative flex items-center gap-4 sm:gap-6 w-full justify-end">
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl flex-1 max-w-[600px] aspect-[4/3] md:aspect-auto md:h-[500px]">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentFeature.image}
-                    initial={{ opacity: 0.6, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0.6 }}
-                    transition={{ duration: 0.5 }}
-                    className="w-full h-full"
-                  >
-                      <Image 
-                        src={currentFeature.image} 
-                        alt={currentFeature.title}
+          {/* Frame 2: Content Grid */}
+          <div className="w-full max-w-7xl">
+            
+            {/* Mobile/Tablet View (< lg) */}
+            <div className="flex flex-col gap-12 sm:gap-16 lg:hidden w-full">
+              {expertiseData.map((item) => (
+                <div key={item.id} className="flex flex-col gap-6 sm:gap-8">
+                  <div className="flex flex-col gap-4 sm:gap-5">
+                    <h3 className="text-[24px] sm:text-[32px] leading-[32px] sm:leading-[40px] font-onest font-medium -tracking-[1.76px] text-[#f1f1ef]">
+                      {item.title}
+                    </h3>
+                    <p className="text-[14px] sm:text-[16px] leading-[22px] sm:leading-[24px] -tracking-[0.16px] font-onest font-normal text-[#adadad]/80">
+                      {item.description}
+                    </p>
+                    <div className="flex flex-col gap-3 mt-2">
+                      {item.features.map((feature) => (
+                        <div key={feature} className="flex items-center gap-3">
+                          <Image
+                            src={"/check-circle-1.svg"}
+                            width={20}
+                            height={20}
+                            alt="Check Icon"
+                            className="w-5 h-5 sm:w-6 sm:h-6"
+                          />
+                          <span className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[24px] font-onest font-normal text-[#adadad]">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full aspect-[4/3]">
+                     <Image 
+                        src={item.image} 
+                        alt={item.title}
                         className="w-full h-full object-cover"
                         width={562}
                         height={568}
                       />
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Vertical Scrollbar - Desktop only */}
-              <div className="hidden md:flex flex-col items-center justify-between h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] py-4 pl-4 select-none">
-                <span className="text-xs leading-[18px] text-[#adadad] font-medium min-w-[16px] text-center">01</span>
-                
-                <div 
-                  ref={scrollTrackRef}
-                  onClick={handleTrackClick}
-                  className="flex flex-col items-center justify-start flex-1 w-1 bg-[#232323] rounded-full mx-4 relative overflow-hidden cursor-pointer"
-                >
-                    {/* The Thumb */}
-                    <motion.div 
-                      className="w-full bg-white rounded-full absolute left-0 right-0 mx-auto"
-                      onMouseDown={handleMouseDown}
-                      // Animate position based on index
-                      animate={{
-                        top: `${(currentIndex / distinctSections) * 100}%`,
-                        height: `${(1 / distinctSections) * 100}%`
-                      }}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      style={{
-                          width: '4px', // Ensure it fills the track width or slightly wider? Track is w-1 (4px).
-                          cursor: 'grab'
-                      }}
-                    />
+                  </div>
                 </div>
-                
-                <span className="text-xs text-[#adadad] font-medium min-w-[16px] text-center">04</span>
+              ))}
+            </div>
+
+            {/* Desktop View (>= lg) */}
+            <div className="hidden lg:flex flex-row items-center gap-16 w-full">
+              {/* Left Div: Text and List */}
+              <ExpertiseContent activeFeature={currentFeature} />
+
+              {/* Right Div: Image with Scrollbar */}
+              <div className="flex-1 relative flex items-center gap-6 w-full justify-end">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl flex-1 max-w-[600px] h-[500px]">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentFeature.image}
+                      initial={{ opacity: 0.6, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0.6 }}
+                      transition={{ duration: 0.5 }}
+                      className="w-full h-full"
+                    >
+                        <Image 
+                          src={currentFeature.image} 
+                          alt={currentFeature.title}
+                          className="w-full h-full object-cover"
+                          width={562}
+                          height={568}
+                        />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                {/* Vertical Scrollbar */}
+                <div className="flex flex-col items-center justify-between h-[500px] py-4 pl-4 select-none">
+                  <span className="text-xs leading-[18px] text-[#adadad] font-medium min-w-[16px] text-center">01</span>
+                  
+                  <div 
+                    ref={scrollTrackRef}
+                    onClick={handleTrackClick}
+                    className="flex flex-col items-center justify-start flex-1 w-1 bg-[#232323] rounded-full mx-4 relative overflow-hidden cursor-pointer"
+                  >
+                      {/* The Thumb */}
+                      <motion.div 
+                        className="w-full bg-white rounded-full absolute left-0 right-0 mx-auto"
+                        onMouseDown={handleMouseDown}
+                        // Animate position based on index
+                        animate={{
+                          top: `${(currentIndex / distinctSections) * 100}%`,
+                          height: `${(1 / distinctSections) * 100}%`
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        style={{
+                            width: '4px', // Ensure it fills the track width or slightly wider? Track is w-1 (4px).
+                            cursor: 'grab'
+                        }}
+                      />
+                  </div>
+                  
+                  <span className="text-xs text-[#adadad] font-medium min-w-[16px] text-center">04</span>
+                </div>
               </div>
             </div>
           </div>
