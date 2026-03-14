@@ -14,7 +14,6 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/next.config.ts ./next.config.ts
 
-# ✅ FIX: allow Next.js to write cache
 RUN mkdir -p /app/.next/cache/images \
     && chown -R nextjs:nextjs /app/.next
 
