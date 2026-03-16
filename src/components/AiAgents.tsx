@@ -1,9 +1,11 @@
 import Image from "next/image";
 
-
 export default function AiAgents() {
-   return (
-    <section id="ai" className="relative w-full overflow-x-hidden    mx-auto overflow-y-hidden xl:max-w-[1240px]   px-4 py-20 sm:px-6 lg:px-8 xl:px-[100px] lg:py-[140px] ">
+  return (
+    <section
+      id="ai"
+      className="relative w-full overflow-x-hidden    mx-auto overflow-y-hidden xl:max-w-[1240px]   px-4 py-20 sm:px-6 lg:px-8 xl:px-[100px] lg:py-[140px] "
+    >
       {/* Header */}
       <div className="mb-12 sm:mb-16 text-center flex flex-col items-center justify-center md:mb-[60px]">
         <div className="mb-4 flex items-center justify-center gap-2">
@@ -28,7 +30,7 @@ export default function AiAgents() {
         {/* Left - Image */}
         <div className="relative w-full lg:w-[600px] h-[280px] sm:h-[400px] lg:h-[568px] rounded-[20px] overflow-hidden">
           <Image
-            src="/background.png"
+            src="/Background.png"
             alt="AI Agents"
             fill
             className="object-cover"
