@@ -9,7 +9,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative w-full h-full">
             <Image
-              src="/Gradient_Hero.png"
+              src="/gradient_Hero.png"
               alt="Hero background"
               fill
               className="object-cover"

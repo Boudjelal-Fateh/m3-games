@@ -20,16 +20,18 @@ const onest = Onest({
 
 export const metadata: Metadata = {
   title: "M3 Games ",
-  description: "We don't just deliver code — we build scalable systems that grow with your business.",
-  metadataBase: new URL("https://m3-games.com"), 
+  description:
+    "We don't just deliver code — we build scalable systems that grow with your business.",
+  metadataBase: new URL("https://m3-games.com"),
   openGraph: {
     title: "M3 Games - Solutions Built for Your Growth",
-    description: "We don't just deliver code — we build scalable systems that grow with your business.",
-    url: "https:/so",
+    description:
+      "We don't just deliver code — we build scalable systems that grow with your business.",
+    url: "https://m3-games.com",
     siteName: "M3 Games",
     images: [
       {
-        url: "/Social_Preview.png",
+        url: "/social_Preview.png",
         width: 1200,
         height: 630,
         alt: "M3 Games Preview",
@@ -41,8 +43,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "M3 Games - Solutions Built for Your Growth",
-    description: "We don't just deliver code — we build scalable systems that grow with your business.",
-    images: ["/Social_Preview.png"],
+    description:
+      "We don't just deliver code — we build scalable systems that grow with your business.",
+    images: ["/social_Preview.png"],
   },
 };
 

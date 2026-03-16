@@ -10,12 +10,12 @@ const navLinks = [
   { id: "web3", label: "Web3", href: "#web3" },
   { id: "ai", label: "AI", href: "#ai" },
   { id: "plans", label: "Plans", href: "#plans" },
-  { id: "contact", label: "Contact", href: "#contact" }
+  { id: "contact", label: "Contact", href: "#contact" },
 ];
 
 // NavLink Component for Desktop
 interface NavLinkProps {
-  link: typeof navLinks[0];
+  link: (typeof navLinks)[0];
   isActive: boolean;
   onClick: (id: string) => void;
 }
@@ -69,21 +69,32 @@ export default function Navbar() {
   };
 
   return (
-    <nav 
+    <nav
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
-        background: 'linear-gradient(94deg, rgba(17, 18, 20, 0.30) 4.87%, rgba(12, 13, 15, 0.36) 75.88%)',
-        boxShadow: '0 1px 1px 1px rgba(255, 255, 255, 0.15) inset',
-        backdropFilter: 'blur(12.5px)',
+        borderBottom: "1px solid rgba(255, 255, 255, 0.06)",
+        background:
+          "linear-gradient(94deg, rgba(17, 18, 20, 0.30) 4.87%, rgba(12, 13, 15, 0.36) 75.88%)",
+        boxShadow: "0 1px 1px 1px rgba(255, 255, 255, 0.15) inset",
+        backdropFilter: "blur(12.5px)",
       }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/">
-              <h1 className="text-white text-xl font-bold cursor-pointer">M3 Games</h1>
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (window.location.pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+            >
+              <h1 className="text-white text-xl font-bold cursor-pointer">
+                M3 Games
+              </h1>
             </Link>
           </div>
 
@@ -103,23 +114,38 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             {/* Language Selector */}
             <button className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors">
-              <Image 
-                src="/united-states.svg" 
-                alt="US Flag" 
-                width={20} 
+              <Image
+                src="/united-states.svg"
+                alt="US Flag"
+                width={20}
                 height={20}
                 className="rounded-sm"
               />
               <span className="text-sm">EN</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-gray-400">
-                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                className="text-gray-400"
+              >
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
 
             {/* CTA Button */}
-           <Link href="#contact"> <button className="px-6 py-2 bg-white text-black font-medium rounded-md hover:bg-gray-100 transition-colors text-sm cursor-pointer">
-              Get Started Today
-            </button></Link>
+            <Link href="#contact">
+              {" "}
+              <button className="px-6 py-2 bg-white text-black font-medium rounded-md hover:bg-gray-100 transition-colors text-sm cursor-pointer">
+                Get Started Today
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Hamburger Menu */}
@@ -130,12 +156,34 @@ export default function Navbar() {
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
               )}
             </button>
@@ -148,18 +196,18 @@ export default function Navbar() {
         <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 md:hidden"
           onClick={() => setIsMenuOpen(false)}
-          style={{ top: '64px' }}
+          style={{ top: "64px" }}
         />
       )}
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div 
+        <div
           className="md:hidden border-t fixed left-0 right-0 z-50"
           style={{
-            top: '64px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-            background: '#000',
+            top: "64px",
+            borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+            background: "#000",
           }}
         >
           <div className="px-6 py-4 space-y-3">
@@ -174,16 +222,28 @@ export default function Navbar() {
 
             {/* Mobile Language Selector */}
             <button className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors py-2 w-full">
-              <Image 
-                src="/united-states.svg" 
-                alt="US Flag" 
-                width={20} 
+              <Image
+                src="/united-states.svg"
+                alt="US Flag"
+                width={20}
                 height={20}
                 className="rounded-sm"
               />
               <span className="text-sm">EN</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-gray-400">
-                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                className="text-gray-400"
+              >
+                <path
+                  d="M3 4.5L6 7.5L9 4.5"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
 
