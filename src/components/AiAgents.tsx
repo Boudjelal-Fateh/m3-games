@@ -1,10 +1,55 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+const FULL_TEXT =
+  "We build custom AI models fine-tuned on your specific data and use cases to deliver maximum accuracy and relevance. Our approach includes domain-specific training, Performance optimization and continuous learning to ensure models evolve with your business. Every solution is designed with privacy and security at its core, giving you reliable, high-performance AI you can trust.";
+
+const words = FULL_TEXT.split(" ");
 
 export default function AiAgents() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [litCount, setLitCount] = useState(1);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  // Detect desktop breakpoint (lg = 1024px)
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    setIsDesktop(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  // Scroll-driven animation — only active on desktop
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const handleScroll = () => {
+      const section = sectionRef.current;
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const windowH = window.innerHeight;
+
+      const total = rect.height + windowH;
+      const elapsed = windowH - rect.top;
+      const progress = Math.max(0, Math.min(1, (elapsed / total) * 1.6));
+
+      const count = Math.round(progress * words.length);
+      setLitCount(Math.max(1, count));
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isDesktop]);
+
   return (
     <section
       id="ai"
-      className="relative w-full overflow-x-hidden    mx-auto overflow-y-hidden xl:max-w-[1240px]   px-4 py-20 sm:px-6 lg:px-8 xl:px-[100px] lg:py-[140px] "
+      ref={sectionRef}
+      className="relative w-full overflow-x-hidden mx-auto overflow-y-hidden xl:max-w-[1240px] px-4 py-20 sm:px-6 lg:px-8 xl:px-[100px] lg:py-[140px]"
     >
       {/* Header */}
       <div className="mb-12 sm:mb-16 text-center flex flex-col items-center justify-center md:mb-[60px]">
@@ -39,25 +84,28 @@ export default function AiAgents() {
 
         {/* Right - Content */}
         <div className="flex flex-col gap-6 sm:gap-8 lg:justify-between h-auto lg:min-h-[568px] w-full lg:w-[570px] py-[20px]">
-          {/* Main Text */}
+          {/* Main Text — animated on desktop, always white on mobile */}
           <div className="flex flex-col gap-4">
-            <p className="text-[16px]  sm:text-[18px] lg:text-[23.5px] leading-[24px] sm:leading-[28px] lg:leading-[40px] font-onest font-[500] text-[#fff]">
-              We build custom AI models fine-tuned on your specific data and use
-              cases to deliver maximum accuracy and relevance. Our approach
-              includes domain-specific training,{" "}
-              <span className=" text-[#202020] ">
-                {" "}
-                Performance optimization and continuous learning to ensure
-                models evolve with your business. Every solution is designed
-                with privacy and security at its core, giving you reliable,
-                high-performance AI you can trust.
-              </span>
+            <p className="text-[16px] sm:text-[18px] lg:text-[23.5px] leading-[24px] sm:leading-[28px] lg:leading-[40px] font-onest font-[500]">
+              {words.map((word, i) => (
+                <span
+                  key={i}
+                  style={{
+                    color: !isDesktop || i < litCount ? "#f1f1ef" : "#2a2a2a",
+                    transition: isDesktop ? "color 0.25s ease" : "none",
+                    display: "inline",
+                  }}
+                >
+                  {word}
+                  {i < words.length - 1 ? " " : ""}
+                </span>
+              ))}
             </p>
           </div>
 
           {/* Floating Notes Card */}
-          <div className="flex flex-col gap-[15.3px]   ">
-            <div className="flex items-center  px-[6px] py-[3px] bg-[#1b1c1e] rounded-[6px] w-fit   gap-1">
+          <div className="flex flex-col gap-[15.3px]">
+            <div className="flex items-center px-[6px] py-[3px] bg-[#1b1c1e] rounded-[6px] w-fit gap-1">
               <Image
                 src={"/SVG-4.svg"}
                 width={16}
@@ -70,8 +118,8 @@ export default function AiAgents() {
             </div>
             <p className="text-[13px] sm:text-[14px] lg:leading-[22px] tracking-[0.2px] leading-[18px] sm:leading-[20px] font-onest font-normal text-[#9c9c9d]">
               A quick and lightweight way to capture ideas instantly,{" "}
-              <br className=" hidden md:block" /> without interrupting your
-              workflow.
+              <br className="hidden md:block" />
+              without interrupting your workflow.
             </p>
           </div>
         </div>
