@@ -117,6 +117,13 @@ export default function ExpertiseSection() {
   const [isDragging, setIsDragging] = useState(false);
   const scrollTrackRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollBarRef = useRef<HTMLDivElement>(null);
+  const currentIndexRef = useRef(currentIndex);
+
+  // Keep a ref in sync so the wheel handler always reads fresh value
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
 
   const distinctSections = expertiseData.length;
 
@@ -172,21 +179,34 @@ export default function ExpertiseSection() {
 
   const lastWheelTime = useRef(0);
 
-  const handleWheel = (e: React.WheelEvent) => {
-    const now = Date.now();
-    if (now - lastWheelTime.current < 500) return; // Debounce 500ms
+  // Attach wheel listener natively to the scrollbar so we can call preventDefault
+  // (React synthetic onWheel is passive by default and cannot preventDefault)
+  useEffect(() => {
+    const el = scrollBarRef.current;
+    if (!el) return;
 
-    const delta = e.deltaY;
-    if (Math.abs(delta) > 10) {
-      if (delta > 0 && currentIndex < distinctSections - 1) {
-        setCurrentIndex((prev) => prev + 1);
-        lastWheelTime.current = now;
-      } else if (delta < 0 && currentIndex > 0) {
-        setCurrentIndex((prev) => prev - 1);
-        lastWheelTime.current = now;
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const now = Date.now();
+      if (now - lastWheelTime.current < 500) return;
+
+      const delta = e.deltaY;
+      if (Math.abs(delta) > 10) {
+        if (delta > 0 && currentIndexRef.current < distinctSections - 1) {
+          setCurrentIndex((prev) => prev + 1);
+          lastWheelTime.current = now;
+        } else if (delta < 0 && currentIndexRef.current > 0) {
+          setCurrentIndex((prev) => prev - 1);
+          lastWheelTime.current = now;
+        }
       }
-    }
-  };
+    };
+
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, [distinctSections]);
 
   const currentFeature = expertiseData[currentIndex];
 
@@ -194,7 +214,6 @@ export default function ExpertiseSection() {
     <section
       id="services"
       ref={containerRef}
-      onWheel={handleWheel} // Attach wheel listener
       className="relative bg-transparent w-full py-12 px-6 sm:py-16 sm:px-8 md:py-20 md:px-12 lg:py-[100px] lg:px-[100px]"
     >
       <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-[60px] w-full max-w-[1440px] mx-auto">
@@ -285,7 +304,10 @@ export default function ExpertiseSection() {
               </div>
 
               {/* Vertical Scrollbar */}
-              <div className="flex flex-col items-center justify-between h-[500px] py-4 pl-4 select-none">
+              <div
+                ref={scrollBarRef}
+                className="flex flex-col items-center justify-between h-[500px] py-4 pl-4 select-none"
+              >
                 <span className="text-xs leading-[18px] text-[#adadad] font-medium min-w-[16px] text-center">
                   01
                 </span>
